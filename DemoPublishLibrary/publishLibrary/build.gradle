@@ -29,9 +29,9 @@ android {
 publishing {
     publications {
         bar(MavenPublication) {
-            //groupId "com.example"
-            artifactId "publishLibrary"
-            version "0.9-alpha"
+            groupId "com.example"
+            artifactId "publishlibrary"
+            version "0.12-alpha"
             artifact("$buildDir/outputs/aar/publishLibrary-release.aar")
         }
     }
@@ -40,7 +40,8 @@ publishing {
             name "GithubPackages"
             url uri("https://maven.pkg.github.com/Galateyta/PublishLibrary")
             credentials {
-                username =  System.getenv("GITHUB_USER")
+                username = System.getenv("GITHUB_USERNAME")
+                password = System.getenv("GITHUB_TOKEN")
             }
         }
     }
