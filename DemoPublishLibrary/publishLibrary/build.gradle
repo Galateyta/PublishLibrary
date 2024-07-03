@@ -1,7 +1,19 @@
-plugins {
-    id 'com.android.library'
-    id 'maven-publish'
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath 'com.github.kezong:fat-aar:1.3.6'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
 }
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.kezong.fat-aar'
+apply plugin: 'maven-publish'
 
 android {
     namespace 'com.example.publishlibrary'
@@ -29,9 +41,9 @@ android {
 publishing {
     publications {
         bar(MavenPublication) {
-            groupId "com.example"
+            groupId "com.example.publishlibrary"
             artifactId "publishlibrary"
-            version "0.12-alpha"
+            version "0.2-alpha"
             artifact("$buildDir/outputs/aar/publishLibrary-release.aar")
         }
     }
@@ -48,11 +60,11 @@ publishing {
 }
 
 dependencies {
-
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation("com.example.publishlibrary:0.12-alpha")
-    implementation 'com.google.android.material:material:1.12.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    //implementation("com.example.publishlibrary:0.12-alpha")
+    implementation project(':kinegram')
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation 'androidx.core:core:1.9.0'
+    api project(':android_common')
+    embed project(':android_common')
+    embed project(path: ':kinegram', configuration: 'default')
 }

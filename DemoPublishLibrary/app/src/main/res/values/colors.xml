@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorHoloRed">@android:color/holo_red_dark</color>
+    <color name="menuColorRipple">#b3c9c9c9</color>
+    <color name="colorDefaultWhite">@android:color/white</color>
+    <color name="blindedWhite">#d9d9d9</color>
+    <color name="drawer_item_delimiter">#E6E6E6</color>
+
+    <color name="spinner_popup_color">#4260b7</color>
+    <color name="black">#000000</color>
+    <color name="gray">#7b7b7b</color>
+    <color name="black_transparent">#c2000000</color>
+
+    <color name="colorStatusTextError">@color/colorHoloRed</color>
+
+    <color name="colorFirstStep">#6d38c3</color>
+    <color name="colorSecondStep">#5c54e7</color>
+    <color name="delimiter_background">#33FFFFFF</color>
 </resources>

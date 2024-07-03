@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+
+def getVersion() {
+    return hasProperty('VERSION_STRING') ? VERSION_STRING : '0.0.0'
+}
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion '30.0.2'
+    defaultConfig {
+        buildConfigField "String", "VERSION_NAME", "\""+ getVersion() + "\""
+
+        minSdkVersion 19
+        targetSdkVersion 31
+        versionCode 1
+        versionName getVersion()
+        multiDexEnabled true
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation project(':kinegram')
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation 'androidx.core:core:1.9.0'
+
+    implementation 'org.java-websocket:Java-WebSocket:1.5.2'
+}

@@ -23,4 +23,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "DemoPublishLibrary"
 include(":app")
+include (":kinegram")
 include(":publishLibrary")
+include(":android_common")
+project(":kinegram").projectDir = file("android_common/kinegram")
+project(":android_common").projectDir = file("android_common")

@@ -1,0 +1,1 @@
+com.kurzdigital.android.emrtdconnector
